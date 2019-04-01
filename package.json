@@ -1,0 +1,20 @@
+{
+  "name": "neo4jbackend",
+  "version": "1.0.0",
+  "description": "neo4j",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "neo4j-driver": "^1.7.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/surivig18"
+  },
+  "author": "Suria",
+  "license": "ISC"
+}
