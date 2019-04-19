@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/serviceConstants.js"],"names":["ServiceConstants","GET_MOVIES"],"mappings":";;;;IAAMA,gB;;;;AAAAA,gB,CAEKC,U,GAAa,mC","file":"serviceConstants.js","sourcesContent":["class ServiceConstants{\n\n    static GET_MOVIES = 'MATCH (n:Movie) RETURN n LIMIT 25';\n}\n\n"]}

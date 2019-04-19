@@ -1,7 +1,7 @@
 
 var neo4j = require('neo4j-driver').v1;
 var express = require('express');
-
+var movie = require('../src/model/movie')
 var driver = neo4j.driver("bolt://localhost:7687", neo4j.auth.basic("neo", "one"));
 var session = driver.session();
   
@@ -18,22 +18,7 @@ var session = driver.session();
   // Initial dummy route for testing
   // http://localhost:3000/api
   router.get('/', function(req, res) {
-    var readTxResultPromise = session.readTransaction(function (transaction) {
-  
-        var result = transaction.run('MATCH (n:Movie) RETURN n LIMIT 25');
-        return result;
-      });;
-      readTxResultPromise.then(function (result) {
-        session.close();
-       // console.log(result.records);
-
-        result.records[0].forEach(e =>{
-            res.json(e);
-        })
-      }).catch(function (error) {
-        console.log(error);
-      });
-    
+    movie.getMovieList();
   });
   
   // Register all our routes with /api
@@ -43,3 +28,4 @@ var session = driver.session();
   app.listen(port);
   console.log('Insert beer on port ' + port);
   
+  export default app;

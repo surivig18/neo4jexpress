@@ -2,14 +2,25 @@
   "name": "neo4jbackend",
   "version": "1.0.0",
   "description": "neo4j",
-  "main": "app.js",
+  "main": "dist",
   "dependencies": {
     "express": "^4.16.4",
     "neo4j-driver": "^1.7.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon -w src --exec \"babel-node src/app.js --presets es2015,stage-0\"",
+    "build": "babel src/app.js -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "test": "eslint src"
   },
   "repository": {
     "type": "git",
